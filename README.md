@@ -7,8 +7,9 @@ Maven
 
 
 #### Compile
+cd metric-app
 mvn clean install
 
 #### Run and Host (port 8080)
-cd metric-api/
+cd metric-app/metric-api
 mvn spring-boot:run
