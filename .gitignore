@@ -1,0 +1,9 @@
+.DS_Store
+.classpath
+.settings
+.project
+metric-api/target
+metric-web/src/main/web/dist
+metric-web/src/main/web/node_modules
+metric-web/src/main/web/node
+
