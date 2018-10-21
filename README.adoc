@@ -1,26 +1,28 @@
 ## Springboot2 Angular 6 App
 
 
-### Requirements
+== Requirements
 Java 8
 Maven
 
 
-#### Compile
+== Compile
 cd metric-app
 mvn clean install
 
-#### Run and Host (port 8080)
+
+== Run and Host (port 8080)
 cd metric-app/metric-api
 mvn spring-boot:run
 
-#### Docker ####
+
+== Docker
 cd metric-app/metric-api
 mvn dockerfile:build
 mvn dockerfile:push
 
 
-#### Hosting for Development ####
+== Hosting for Development
 cd metric-app/metric-api
 mvn spring-boot:run
 
