@@ -18,3 +18,11 @@ mvn spring-boot:run
 cd metric-app/metric-api
 mvn dockerfile:build
 mvn dockerfile:push
+
+
+#### Hosting for Development ####
+cd metric-app/metric-api
+mvn spring-boot:run
+
+cd metric-app/metric-web
+ng serve -o
