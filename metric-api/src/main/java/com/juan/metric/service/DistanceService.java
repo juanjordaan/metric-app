@@ -27,6 +27,8 @@ public class DistanceService {
 		Distance distance = new Distance();
 		
 		distance.setUnits(units);
+		distance.setUnit(_MILES);
+		distance.setValue(new Double(0));
 		
 		return distance;
 	}

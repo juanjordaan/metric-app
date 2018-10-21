@@ -31,4 +31,9 @@ public abstract class Measure {
 	public void setUnits(List<String> units) {
 		this.units = units;
 	}
+
+	@Override
+	public String toString() {
+		return "Measure [value=" + value + ", unit=" + unit + ", units=[" + units + "]]";
+	}
 }

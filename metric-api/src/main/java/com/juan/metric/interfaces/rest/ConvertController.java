@@ -2,6 +2,10 @@ package com.juan.metric.interfaces.rest;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -9,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +27,10 @@ import com.juan.metric.service.WeightService;
 
 @RequestMapping(path="/convert")
 @Controller
+@CrossOrigin(origins = "http://localhost:4200")
 public class ConvertController {
+	private Logger LOG = LoggerFactory.getLogger(ConvertController.class);
+	
 	@Autowired
 	private DistanceService distanceService;
 	
@@ -38,7 +46,7 @@ public class ConvertController {
 			method=GET)
 	@ResponseBody
 	public ResponseEntity<Distance> distanceGet() {
-
+		LOG.info("get distance");
 		Distance distance = distanceService.empty();
 		
 		return new ResponseEntity<Distance>(distance, OK);
@@ -50,8 +58,10 @@ public class ConvertController {
 			method=POST)
 	@ResponseBody
 	public ResponseEntity<Distance> distancePost(@RequestBody Distance distance) {
-
+		
 		distance = distanceService.convert(distance);
+		
+		LOG.info("returning {}", distance);
 		
 		return new ResponseEntity<Distance>(distance, OK);
 	}
@@ -62,6 +72,7 @@ public class ConvertController {
 			method=GET)
 	@ResponseBody
 	public ResponseEntity<Temperature> temperatureGet() {
+		LOG.info("get temperature");
 		
 		Temperature temperature = temperatureService.empty();
 		
@@ -77,6 +88,8 @@ public class ConvertController {
 		
 		temperature = temperatureService.convert(temperature);
 		
+		LOG.info("returning {}", temperature);
+		
 		return new ResponseEntity<Temperature>(temperature, OK);
 	}
 	
@@ -86,6 +99,7 @@ public class ConvertController {
 			method=GET)
 	@ResponseBody
 	public ResponseEntity<Weight> weightGet() {
+		LOG.info("get weight");
 		
 		Weight weight = weightService.empty();
 		
@@ -100,6 +114,8 @@ public class ConvertController {
 	public ResponseEntity<Weight> weightPost(@RequestBody Weight weight) {
 		
 		weight = weightService.convert(weight);
+		
+		LOG.info("returning {}", weight);
 		
 		return new ResponseEntity<Weight>(weight, OK);
 	}

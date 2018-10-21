@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.juan.metric.domain.model.Temperature.*;
-
 import static javax.measure.unit.NonSI.*;
 import static javax.measure.unit.SI.*;
 
@@ -27,7 +26,10 @@ public class TemperatureService {
 	
 	public Temperature empty() {
 		Temperature temperature = new Temperature();
+		
 		temperature.setUnits(units);
+		temperature.setUnit(_Celsius);
+		temperature.setValue(new Double(0));
 		
 		return temperature;
 	}

@@ -28,6 +28,8 @@ public class WeightService {
 	public Weight empty() {
 		Weight weight = new Weight();
 		weight.setUnits(units);
+		weight.setUnit(_Kilogram);
+		weight.setValue(new Double(0));
 		
 		return weight;
 	}
