@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-home',
   template: `
     <p>
-      home works!
+      Choose a Metric/Imperial Service.
     </p>
   `,
   styleUrls: ['./home.component.css']
