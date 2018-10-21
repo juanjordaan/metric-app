@@ -33,7 +33,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>javax.measure</groupId>
 			<artifactId>unit-api</artifactId>
 			<version>1.0</version>
@@ -43,6 +43,19 @@
 			<groupId>tec.units</groupId>
 			<artifactId>unit-ri</artifactId>
 			<version>1.0.3</version>
+		</dependency> -->
+
+<!-- 		<dependency>
+		    <groupId>systems.uom</groupId>
+		    <artifactId>systems-quantity</artifactId>
+		    <version>0.9</version>
+		    <scope>provided</scope>
+		</dependency> -->
+		
+		<dependency>
+		    <groupId>org.jscience</groupId>
+		    <artifactId>jscience</artifactId>
+		    <version>4.3.1</version>
 		</dependency>
 
 		<dependency>
