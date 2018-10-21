@@ -1,29 +1,56 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { MeasureService } from './measure.service';
+
+import { Measure } from './measure.model';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div style="text-align:center">
-      <h1>
-        Welcome to Convertor App!
-      </h1>
-    </div>
-    <h2>Here are some links for Metric/Imperial Conversions: </h2>
-    <ul>
-      <li>
-        <h2><a href="/distance">Distance</a></h2>
-      </li>
-      <li>
-        <h2><a href="/temperature">Temperature</a></h2>
-      </li>
-      <li>
-        <h2><a href="/weight">Weight</a></h2>
-      </li>
-    </ul>
-    <router-outlet></router-outlet>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'web';
+export class AppComponent implements OnInit {
+  distance : Measure;
+  weight : Measure;
+  temperature : Measure;
+
+  constructor(private measureService : MeasureService ) { }
+
+  ngOnInit() {
+    this.measureService.get("distance").subscribe(data => {
+      this.distance = data;
+      console.log(new Date() + ": distance = " + JSON.stringify(this.distance));
+    }, error => console.error(error));
+
+    this.measureService.get("weight").subscribe(data => {
+      this.weight = data;
+      console.log(new Date() + ": weight = " + JSON.stringify(this.weight));
+    }, error => console.error(error));
+
+    this.measureService.get("temperature").subscribe(data => {
+      this.temperature = data;
+      console.log(new Date() + ": temperature = " + JSON.stringify(this.temperature));
+    }, error => console.error(error));
+  }
+
+  convertDistance() {
+    this.measureService.convert("distance", this.distance).subscribe(data => {
+      this.distance = data;
+      console.log(new Date() + ": distance = " + JSON.stringify(this.distance));
+    }, error => console.error(error));
+  }
+
+  convertWeight() {
+    this.measureService.convert("weight", this.weight).subscribe(data => {
+      this.weight = data;
+      console.log(new Date() + ": weight = " + JSON.stringify(this.weight));
+    }, error => console.error(error));
+  }
+
+  convertTemperature() {
+    this.measureService.convert("temperature", this.temperature).subscribe(data => {
+      this.temperature = data;
+      console.log(new Date() + ": temperature = " + JSON.stringify(this.temperature));
+    }, error => console.error(error));
+  }
 }

@@ -5,18 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { DistanceComponent } from './distance/distance.component';
-import { HomeComponent } from './home/home.component';
-import { WeightComponent } from './weight/weight.component';
-import { TemperatureComponent } from './temperature/temperature.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    DistanceComponent,
-    WeightComponent,
-    TemperatureComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
