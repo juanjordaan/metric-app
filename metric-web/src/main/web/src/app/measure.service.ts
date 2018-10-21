@@ -13,17 +13,17 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class DistanceService {
+export class MeasureService {
 
   constructor(private http: HttpClient) {
 
   }
 
-  get(): Observable<any> {
-    return this.http.get('//localhost:8080/convert/distance', {headers: httpOptions.headers});
+  get(serviceName : string): Observable<any> {
+    return this.http.get('//localhost:8080/convert/' + serviceName, {headers: httpOptions.headers});
   }
 
-  convert(measure : Measure) : Observable<any> {
-    return this.http.post('//localhost:8080/convert/distance',measure , {headers: httpOptions.headers});
+  convert(serviceName : string, measure : Measure) : Observable<any> {
+    return this.http.post('//localhost:8080/convert/' + serviceName, measure , {headers: httpOptions.headers});
   }
 }

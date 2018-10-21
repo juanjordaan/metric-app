@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DistanceService } from './distance.service';
+import { MeasureService } from './measure.service';
 
-describe('DistanceService', () => {
+describe('MeasureService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: DistanceService = TestBed.get(DistanceService);
+    const service: MeasureService = TestBed.get(MeasureService);
     expect(service).toBeTruthy();
   });
 });

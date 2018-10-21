@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WeightService } from '../weight.service';
+import { MeasureService } from '../measure.service';
 
 import { Measure } from '../measure.model';
 
@@ -13,17 +13,17 @@ export class WeightComponent implements OnInit {
 
   weight : Measure;
 
-  constructor(private weightService : WeightService) { }
+  constructor(private weightService : MeasureService) { }
 
   ngOnInit() {
-    this.weightService.get().subscribe(data => {
+    this.weightService.get("weight").subscribe(data => {
       this.weight = data;
       console.log(new Date() + ": weight = " + JSON.stringify(this.weight));
     }, error => console.error(error));
   }
 
   convert() {
-    this.weightService.convert(this.weight).subscribe(data => {
+    this.weightService.convert("weight", this.weight).subscribe(data => {
       this.weight = data;
       console.log(new Date() + ": weight = " + JSON.stringify(this.weight));
     }, error => console.error(error));
