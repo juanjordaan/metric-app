@@ -1,5 +1,5 @@
 export class Measure {
-  value : string;
+  value : number;
   unit : string;
   units : Array<string>;
 }
